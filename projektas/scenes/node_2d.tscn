@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqwqevskeis83"]
+
+[ext_resource type="Texture2D" uid="uid://brcfiv7xpghal" path="res://art/tiles2.png" id="1_novsc"]
+[ext_resource type="Script" path="res://scripts/tile.gd" id="2_mt4hn"]
+[ext_resource type="Texture2D" uid="uid://b6qt04sg5cnuj" path="res://art/Puny-Characters/Environment/Tree.png" id="2_ytgau"]
+[ext_resource type="PackedScene" uid="uid://bu1mermg3cxqu" path="res://scenes/character_body_2d.tscn" id="3_4hfd7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ghbt"]
+texture = ExtResource("1_novsc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccbhr"]
+resource_name = "tree"
+texture = ExtResource("2_ytgau")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vk07i"]
+sources/0 = SubResource("TileSetAtlasSource_7ghbt")
+sources/1 = SubResource("TileSetAtlasSource_ccbhr")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vk07i")
+format = 2
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_mt4hn")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_4hfd7")]
+
+[node name="Node2D" type="Node2D" parent="."]
